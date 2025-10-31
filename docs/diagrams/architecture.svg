@@ -48,24 +48,24 @@
   <rect width="1400" height="900" fill="#ffffff"/>
   
   <!-- Title with shadow -->
-  <text x="700" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#1a1a1a" filter="url(#shadow)">
+  <text x="700" y="50" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#1a1a1a" filter="url(#shadow)">
     Flash Flood Emergency AI System
   </text>
-  <text x="700" y="80" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#6c757d">
+  <text x="700" y="85" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#6c757d">
     10-Agent Distributed Crisis Response Architecture
   </text>
   
   <!-- Command Tier -->
   <g filter="url(#shadow)">
     <rect x="350" y="120" width="700" height="120" rx="12" fill="url(#commandGrad)" stroke="#bd2130" stroke-width="3"/>
-    <text x="700" y="155" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="700" y="160" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">
       COMMAND TIER
     </text>
-    <rect x="450" y="170" width="500" height="50" rx="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-    <text x="700" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
+    <rect x="450" y="175" width="500" height="50" rx="8" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <text x="700" y="202" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="white">
       Mission Control Orchestrator
     </text>
-    <text x="700" y="215" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.9)">
+    <text x="700" y="224" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.9)">
       Port 6009 • Coordinates all agent communication via @agent-id syntax
     </text>
   </g>
@@ -85,31 +85,31 @@
   <!-- Detection Tier -->
   <g filter="url(#shadow)">
     <rect x="850" y="310" width="400" height="180" rx="12" fill="url(#detectionGrad)" stroke="#d39e00" stroke-width="3"/>
-    <text x="1050" y="345" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="1050" y="345" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
       DETECTION TIER
     </text>
     
     <rect x="870" y="360" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="1050" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="1050" y="383" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Social Media Sentinel
     </text>
-    <text x="1210" y="383" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="1210" y="383" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6000
     </text>
     
     <rect x="870" y="405" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="1050" y="428" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="1050" y="428" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Environmental Monitor
     </text>
-    <text x="1210" y="428" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="1210" y="428" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6001
     </text>
     
     <rect x="870" y="450" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="1050" y="473" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="1050" y="473" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       News Alert Scanner
     </text>
-    <text x="1210" y="473" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="1210" y="473" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6002
     </text>
   </g>
@@ -117,31 +117,31 @@
   <!-- Analysis Tier -->
   <g filter="url(#shadow)">
     <rect x="425" y="310" width="400" height="180" rx="12" fill="url(#analysisGrad)" stroke="#004085" stroke-width="3"/>
-    <text x="625" y="345" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="625" y="345" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
       ANALYSIS TIER
     </text>
     
     <rect x="445" y="360" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="625" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="625" y="383" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Situation Assessor
     </text>
-    <text x="785" y="383" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="785" y="383" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6003
     </text>
     
     <rect x="445" y="405" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="625" y="428" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="625" y="428" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Resource Mapper
     </text>
-    <text x="785" y="428" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="785" y="428" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6004
     </text>
     
     <rect x="445" y="450" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="625" y="473" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="625" y="473" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Pattern Analyzer
     </text>
-    <text x="785" y="473" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="785" y="473" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6005
     </text>
   </g>
@@ -149,31 +149,31 @@
   <!-- Response Tier -->
   <g filter="url(#shadow)">
     <rect x="0" y="310" width="400" height="180" rx="12" fill="url(#responseGrad)" stroke="#1e7e34" stroke-width="3"/>
-    <text x="200" y="345" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="200" y="345" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
       RESPONSE TIER
     </text>
     
     <rect x="20" y="360" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="200" y="383" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="200" y="383" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Emergency Dispatcher
     </text>
-    <text x="360" y="383" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="360" y="383" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6006
     </text>
     
     <rect x="20" y="405" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="200" y="428" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="200" y="428" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Public Communicator
     </text>
-    <text x="360" y="428" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="360" y="428" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6007
     </text>
     
     <rect x="20" y="450" width="360" height="35" rx="6" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-    <text x="200" y="473" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="white">
+    <text x="200" y="473" font-family="Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" fill="white">
       Medical Triage
     </text>
-    <text x="360" y="473" font-family="Arial, sans-serif" font-size="12" text-anchor="end" fill="rgba(255,255,255,0.8)">
+    <text x="360" y="473" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">
       :6008
     </text>
   </g>
@@ -185,36 +185,29 @@
   <!-- MCP Server Box -->
   <g filter="url(#shadow)">
     <rect x="50" y="540" width="700" height="140" rx="12" fill="url(#mcpGrad)" stroke="#4a2a8a" stroke-width="3"/>
-    <text x="400" y="575" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="400" y="580" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">
       UNIFIED MCP SERVER
     </text>
-    <text x="400" y="600" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.95)">
-      generate_evacuation_route  •  monitor_risk_zones  •  execute_community_evacuation
+    <text x="400" y="620" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.95)">
+      5 Crisis Response Tools
     </text>
-    <text x="400" y="625" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.95)">
-      get_flood_risk  •  find_emergency_resources
-    </text>
-    <rect x="70" y="640" width="660" height="28" rx="6" fill="rgba(255,255,255,0.15)"/>
-    <text x="400" y="660" font-family="Arial, sans-serif" font-size="12" font-style="italic" text-anchor="middle" fill="rgba(255,255,255,0.9)">
-      Real-time: Geospatial Data • Water Levels • Weather • Shelters • Hospitals • Road Status
+    <text x="400" y="655" font-family="Arial, sans-serif" font-size="16" font-style="italic" text-anchor="middle" fill="rgba(255,255,255,0.9)">
+      Evacuation Routes • Risk Monitoring • Resource Tracking
     </text>
   </g>
   
   <!-- NANDA Registry Box -->
   <g filter="url(#shadow)">
     <rect x="800" y="540" width="550" height="140" rx="12" fill="url(#registryGrad)" stroke="#0f7a8f" stroke-width="3"/>
-    <text x="1075" y="575" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="1075" y="580" font-family="Arial, sans-serif" font-size="26" font-weight="bold" text-anchor="middle" fill="white">
       NANDA REGISTRY
     </text>
-    <rect x="890" y="590" width="370" height="32" rx="6" fill="rgba(255,255,255,0.2)"/>
-    <text x="1075" y="613" font-family="Arial, sans-serif" font-size="15" font-weight="600" text-anchor="middle" fill="white">
+    <rect x="900" y="600" width="350" height="36" rx="6" fill="rgba(255,255,255,0.2)"/>
+    <text x="1075" y="625" font-family="Arial, sans-serif" font-size="20" font-weight="600" text-anchor="middle" fill="white">
       capregistry.duckdns.org:6900
     </text>
-    <text x="1075" y="645" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.95)">
-      Agent Discovery  •  A2A Protocol  •  @agent-id Communication
-    </text>
-    <text x="1075" y="665" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.85)">
-      Enables inter-agent coordination and task delegation
+    <text x="1075" y="660" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.95)">
+      Agent Discovery • A2A Protocol
     </text>
   </g>
   
@@ -226,20 +219,20 @@
   <!-- Tech Stack Box -->
   <g filter="url(#shadow)">
     <rect x="50" y="720" width="1300" height="140" rx="12" fill="#212529" stroke="#000000" stroke-width="3"/>
-    <text x="700" y="755" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    <text x="700" y="755" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
       TECHNOLOGY STACK
     </text>
     
     <!-- AI Framework -->
     <g>
       <rect x="80" y="775" width="280" height="70" rx="8" fill="#343a40" stroke="#495057" stroke-width="2"/>
-      <text x="220" y="800" font-family="Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      <text x="220" y="802" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
         AI Framework
       </text>
-      <text x="220" y="820" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="220" y="822" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         Anthropic Claude Sonnet 4.5
       </text>
-      <text x="220" y="837" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="220" y="839" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         NEST Framework (DataWorksAI)
       </text>
     </g>
@@ -247,13 +240,13 @@
     <!-- Communication -->
     <g>
       <rect x="390" y="775" width="280" height="70" rx="8" fill="#343a40" stroke="#495057" stroke-width="2"/>
-      <text x="530" y="800" font-family="Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      <text x="530" y="802" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
         Communication
       </text>
-      <text x="530" y="820" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="530" y="822" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         A2A Protocol
       </text>
-      <text x="530" y="837" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="530" y="839" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         MCP (Model Context Protocol)
       </text>
     </g>
@@ -261,13 +254,13 @@
     <!-- Infrastructure -->
     <g>
       <rect x="700" y="775" width="280" height="70" rx="8" fill="#343a40" stroke="#495057" stroke-width="2"/>
-      <text x="840" y="800" font-family="Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      <text x="840" y="802" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
         Infrastructure
       </text>
-      <text x="840" y="820" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="840" y="822" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         Linode Cloud (45.33.73.99)
       </text>
-      <text x="840" y="837" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#adb5bd">
+      <text x="840" y="839" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#adb5bd">
         Ubuntu 24.04 LTS
       </text>
     </g>
@@ -275,20 +268,20 @@
     <!-- Performance -->
     <g>
       <rect x="1010" y="775" width="280" height="70" rx="8" fill="#343a40" stroke="#495057" stroke-width="2"/>
-      <text x="1150" y="800" font-family="Arial, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">
+      <text x="1150" y="802" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#ffffff">
         Performance
       </text>
-      <text x="1150" y="820" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#20c997">
+      <text x="1150" y="822" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#20c997">
         Response: 35-40 seconds
       </text>
-      <text x="1150" y="837" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#20c997">
+      <text x="1150" y="839" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#20c997">
         67-135x faster than traditional
       </text>
     </g>
   </g>
   
   <!-- Footer Notes -->
-  <text x="700" y="885" font-family="Arial, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#495057">
+  <text x="700" y="885" font-family="Arial, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#495057">
     All agents use unified nanda_agent.py with different configurations  •  Northeastern University  •  Group 6  •  December 2025
   </text>
 </svg>
