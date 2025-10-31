@@ -8,7 +8,7 @@
 
 ---
 
-## 🚨 The Problem
+## The Problem
 
 Traditional emergency response systems take **45+ minutes** to coordinate during flash flood crises:
 - Manual information gathering
@@ -20,57 +20,81 @@ Traditional emergency response systems take **45+ minutes** to coordinate during
 
 ---
 
-## ✨ Our Solution
+## Our Solution
 
 A **10-agent AI coordination system** that reduces response time to **under 40 seconds** - a **67-135x improvement** over traditional methods.
 
-### 4-Tier Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    COMMAND TIER                              │
-│              Mission Control (Port 6009)                     │
-│           Orchestrates all agent coordination                │
-└─────────────────────────────────────────────────────────────┘
-                            ▲
-                            │
-┌───────────────┬───────────┴───────────┬─────────────────────┐
-│               │                       │                     │
-▼               ▼                       ▼                     ▼
-┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-│Detection│ │Analysis │ │Response │ │Command  │
-│  Tier   │ │  Tier   │ │  Tier   │ │  Tier   │
-└─────────┘ └─────────┘ └─────────┘ └─────────┘
-   3 agents    3 agents    3 agents    1 agent
-```
+![System Architecture](docs/diagrams/architecture.svg)
 
 ---
 
-## 🤖 The 10 Specialized Agents
+## System Architecture
 
-All agents are powered by **Anthropic Claude Sonnet 4.5** using a single unified codebase (`agents/nanda_agent.py`) with different configurations.
+### 4-Tier Distributed Design
 
-### Detection Tier (Ports 6000-6002)
-- **Social Media Sentinel** - Monitors social media for flood reports with credibility scoring
-- **Environmental Monitor** - Tracks weather conditions and flood predictions  
-- **News Alert Scanner** - Monitors official emergency alerts and news sources
+**COMMAND TIER**
+- **Mission Control** (Port 6009) - Orchestrates all agent coordination using @agent-id syntax
 
-### Analysis Tier (Ports 6003-6005)
-- **Situation Assessor** - Analyzes data and determines crisis severity (1-5 scale)
-- **Resource Mapper** - Tracks emergency resources, shelters, and hospital capacity
-- **Pattern Analyzer** - Studies historical flood data for predictions
+**DETECTION TIER**
+- **Social Media Sentinel** (Port 6000) - Monitors social media for flood reports
+- **Environmental Monitor** (Port 6001) - Tracks weather conditions and predictions  
+- **News Alert Scanner** (Port 6002) - Monitors official emergency alerts
 
-### Response Tier (Ports 6006-6008)
-- **Emergency Dispatcher** - Coordinates first responders with route optimization
-- **Public Communicator** - Generates clear evacuation alerts and safety instructions
-- **Medical Triage** - Manages medical response and hospital coordination
+**ANALYSIS TIER**
+- **Situation Assessor** (Port 6003) - Analyzes data and determines severity
+- **Resource Mapper** (Port 6004) - Tracks emergency resources and shelters
+- **Pattern Analyzer** (Port 6005) - Studies historical flood patterns
 
-### Command Tier (Port 6009)
-- **Mission Control** - Orchestrates all agents using @agent-id syntax for coordination
+**RESPONSE TIER**
+- **Emergency Dispatcher** (Port 6006) - Coordinates first responders
+- **Public Communicator** (Port 6007) - Generates evacuation alerts
+- **Medical Triage** (Port 6008) - Manages medical response
 
 ---
 
-## 🛠️ Tech Stack
+## Crisis Response Flow
+
+![Crisis Response Timeline](docs/diagrams/crisis-response-flow.svg)
+
+### Real-World Coordination Example
+
+Here's an actual crisis response from our deployed system:
+
+**Step 1: Detection (0-8 seconds)**
+
+![Social Media Sentinel Detection](docs/screenshots/social-media-sentinel-log.png)
+
+The Social Media Sentinel detects flooding reports:
+- 25+ social media posts analyzed
+- Credibility score: 8/10
+- Urgency level: 4/5
+- Location: Main Street
+
+**Step 2: Analysis (8-15 seconds)**
+
+![Situation Assessor Analysis](docs/screenshots/situation-assessor-log.png)
+
+The Situation Assessor receives the alert and performs risk analysis:
+- Severity Level: 4/5
+- Estimated affected population: ~5,000 people
+- High-risk zones identified
+- Coordinates with Resource Mapper for shelter capacity
+
+**Step 3: Response Coordination (15-40 seconds)**
+
+![Mission Control Coordination](docs/screenshots/mission-control-log.png)
+
+Mission Control orchestrates the multi-agent response:
+- Dispatches emergency units via optimal routes
+- Issues public evacuation alerts
+- Activates medical response teams
+- Coordinates shelter operations
+
+**Total Response Time: Under 40 seconds**
+
+---
+
+## Technology Stack
 
 **AI & Agent Framework:**
 - Anthropic Claude Sonnet 4.5 (via API)
@@ -88,10 +112,76 @@ All agents are powered by **Anthropic Claude Sonnet 4.5** using a single unified
 - Linode Cloud (Ubuntu 24.04.3 LTS)
 - Python 3.8+
 - NANDA Registry: capregistry.duckdns.org:6900
+- Production Deployment: 45.33.73.99
 
 ---
 
-## 🚀 Quick Start
+## How It Works
+
+### Unified Agent Architecture
+
+All 10 agents run the same Python code (`agents/nanda_agent.py`) but with different configurations. Each agent:
+
+1. **Loads Configuration** - Agent ID, name, domain, specialization, system prompt from environment
+2. **Initializes Claude** - Connects to Anthropic API with custom system prompt
+3. **Registers with NANDA** - Publishes capabilities to the registry
+4. **Listens for Messages** - Receives A2A protocol messages on assigned port
+5. **Responds Intelligently** - Uses Claude to generate contextual responses
+6. **Coordinates with Other Agents** - Uses @agent-id syntax to delegate tasks
+
+### Example Agent Configuration
+
+Here's how the Social Media Sentinel agent is configured:
+
+```json
+{
+  "agent_id": "social-media-sentinel",
+  "agent_name": "Social Media Sentinel",
+  "domain": "emergency detection",
+  "specialization": "social media monitoring",
+  "description": "Monitors social media for flood emergency reports",
+  "capabilities": "social_media_monitoring,nlp_analysis,geo_tagging",
+  "system_prompt": "You are a Social Media Monitoring Agent. Monitor social media for flood keywords (flooding, water rising, evacuation). Extract locations, assess credibility (1-10), and report urgency (1-5). Work with @environmental-monitor and @situation-assessor.",
+  "port": 6000
+}
+```
+
+All 10 agents follow this same structure with different IDs, ports, and system prompts. The `nanda_agent.py` script reads these configurations and creates specialized agents dynamically.
+
+### Agent-to-Agent Communication
+
+Agents communicate using the A2A (Agent-to-Agent) protocol with @mentions:
+
+```
+[social-media-sentinel-7f7eba] → [situation-assessor-18aaa4]:
+"URGENT: Detecting heavy flooding reports on Main Street. 
+25+ social media posts. Credibility 8/10. Water rising rapidly. 
+Recommend immediate assessment."
+
+[situation-assessor-18aaa4] → [mission-control-20aef5]:
+"Crisis assessment complete. Severity Level 4/5. 
+Main Street flooding affects 5000 residents. 
+Request coordination of emergency response and evacuation."
+
+[mission-control-20aef5] → Multiple Agents:
+"@emergency-dispatcher-5aabaa dispatch 3 fire trucks.
+@public-communicator-28a49d issue evacuation alert.
+@medical-triage-8fd98d prepare hospitals."
+```
+
+### MCP Server Tools
+
+The unified MCP server (`mcp-servers/crisis_mcp_server.py`) provides 5 tools:
+
+1. **generate_evacuation_route** - Safe routes using geospatial data and real-time road status
+2. **monitor_risk_zones** - Water level monitoring with terrain data analysis
+3. **execute_community_evacuation** - Complete workflow: monitor, plan, dispatch
+4. **get_flood_risk** - Weather-based flood risk assessment (Low/Medium/High/Extreme)
+5. **find_emergency_resources** - Shelters and hospitals with capacity information
+
+---
+
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -100,7 +190,7 @@ All agents are powered by **Anthropic Claude Sonnet 4.5** using a single unified
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/flash-flood-emergency-ai.git
+git clone https://github.com/priyankaraghunathan15/flash-flood-emergency-ai.git
 cd flash-flood-emergency-ai
 ```
 
@@ -120,7 +210,7 @@ pip install mcp
 # Set your Anthropic API key
 export ANTHROPIC_API_KEY="your-api-key-here"
 
-# Set registry URL (optional)
+# Set registry URL
 export REGISTRY_URL="http://capregistry.duckdns.org:6900"
 
 # Set your server IP
@@ -145,12 +235,14 @@ This script will:
 ps aux | grep nanda_agent.py
 
 # View agent logs
+tail -f logs/agent_mission-control.log
 tail -f logs/agent_social-media-sentinel.log
+tail -f logs/agent_situation-assessor.log
 ```
 
 ---
 
-## 📋 Project Structure
+## Project Structure
 
 ```
 flash-flood-emergency-ai/
@@ -165,61 +257,20 @@ flash-flood-emergency-ai/
 │   └── deploy-crisis-agents.sh           # Deployment script
 ├── docs/
 │   ├── architecture.md                   # Detailed system architecture
-│   └── deployment-guide.md               # Step-by-step deployment guide
+│   ├── deployment-guide.md               # Step-by-step deployment guide
+│   ├── diagrams/
+│   │   ├── architecture.svg              # System architecture diagram
+│   │   └── crisis-response-flow.svg      # Crisis response timeline
+│   └── screenshots/
+│       ├── mission-control-log.png       # Mission Control coordination
+│       ├── situation-assessor-log.png    # Analysis tier in action
+│       └── social-media-sentinel-log.png # Detection tier alert
 └── README.md
 ```
 
 ---
 
-## 🔧 How It Works
-
-### Agent Architecture
-
-All 10 agents run the same Python code (`agents/nanda_agent.py`) but with different configurations loaded from environment variables. Each agent:
-
-1. **Loads Configuration** - Agent ID, name, domain, specialization, system prompt from environment
-2. **Initializes Claude** - Connects to Anthropic API with custom system prompt
-3. **Registers with NANDA** - Publishes capabilities to the registry
-4. **Listens for Messages** - Receives A2A protocol messages on assigned port
-5. **Responds Intelligently** - Uses Claude to generate contextual responses
-6. **Coordinates with Other Agents** - Uses @agent-id syntax to delegate tasks
-
-### MCP Server Tools
-
-The unified MCP server (`mcp-servers/crisis_mcp_server.py`) provides 5 tools:
-
-1. **generate_evacuation_route** - Safe routes using geospatial data and real-time road status
-2. **monitor_risk_zones** - Water level monitoring with terrain data analysis
-3. **execute_community_evacuation** - Complete workflow: monitor → plan → dispatch
-4. **get_flood_risk** - Weather-based flood risk assessment (Low/Medium/High/Extreme)
-5. **find_emergency_resources** - Shelters and hospitals with capacity information
-
-### Agent Communication Example
-
-```
-User → Mission Control: "Flash flood reported in Downtown Boston"
-
-Mission Control → @social-media-sentinel: "Verify social media reports"
-Social Media Sentinel → Mission Control: "Credibility: 8/10, Urgency: 4/5"
-
-Mission Control → @environmental-monitor: "Check water levels"
-Environmental Monitor → Mission Control: "Charles River at 8.5ft (CRITICAL)"
-
-Mission Control → @situation-assessor: "Assess severity"
-Situation Assessor → Mission Control: "Severity Level 4, ~5000 affected"
-
-Mission Control → @emergency-dispatcher: "Deploy resources"
-Emergency Dispatcher → Mission Control: "Units dispatched via I-93 North"
-
-Mission Control → @public-communicator: "Issue evacuation alert"
-Public Communicator → Mission Control: "Alert sent to affected zones"
-
-Total Response Time: 37 seconds
-```
-
----
-
-## 📊 Performance Metrics
+## Performance Metrics
 
 **Response Time Comparison:**
 - Traditional Method: 45-90 minutes
@@ -228,21 +279,23 @@ Total Response Time: 37 seconds
 
 **System Specifications:**
 - 10 AI agents running simultaneously
-- Sub-second inter-agent communication
+- Sub-second inter-agent communication via A2A protocol
 - Real-time data integration via MCP
-- 99.9% uptime on cloud infrastructure
+- Deployed on Linode Cloud infrastructure
+- 99.9% uptime capability
 
 ---
 
-## 📖 Documentation
+## Documentation
 
 - [Architecture Overview](docs/architecture.md) - Detailed technical design
 - [Deployment Guide](docs/deployment-guide.md) - Step-by-step server setup
 - [Agent Configuration](config/group-crisis-flood-response.json) - All 10 agent configs
+- [MCP Server Implementation](mcp-servers/crisis_mcp_server.py) - Tool definitions
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Javi Vindas** - Project sponsor and technical guidance on MCP implementation
 - **Professor Hema Seshadri** - Academic advisor and project coordinator
@@ -251,16 +304,18 @@ Total Response Time: 37 seconds
 
 ---
 
-## 📄 License
+## License
 
 MIT License - See [LICENSE](LICENSE) for details
 
 ---
 
-## 🌐 Registry & Deployment
+## Registry & Deployment
 
 **NANDA Registry:** http://capregistry.duckdns.org:6900  
 **Current Deployment:** Linode Cloud (45.33.73.99)  
 **Status:** Active Development | Production Ready
 
+---
 
+**Built for faster emergency response and saving lives**
