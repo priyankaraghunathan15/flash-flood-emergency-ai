@@ -128,7 +128,7 @@ function App() {
     });
     
     previousActiveAgents.current = new Set(activeAgents);
-  }, [activeAgents, isMuted]);
+  }, [activeAgents, isMuted, playActivationSound]);
 
   return (
     <div className="app">
