@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Target, Share2, CloudRain, Newspaper, Search, MapPin, BarChart3, Radio, Megaphone, HeartPulse, Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 const API_BASE = 'http://45.33.73.99:5000/api';
 
@@ -30,7 +31,7 @@ function App() {
     { id: 'medical-triage', name: 'Medical', icon: HeartPulse, color: '#14b8a6' }
   ];
 
-  const playActivationSound = () => {
+  const playActivationSound = useCallback(() => {
     if (isMuted) return;
     
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -48,7 +49,7 @@ function App() {
     
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.1);
-  };
+  }, [isMuted]);
 
   const triggerScenario = async (scenarioKey) => {
     try {
