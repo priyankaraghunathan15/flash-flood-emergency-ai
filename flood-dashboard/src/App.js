@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import { Target, Share2, CloudRain, Newspaper, Search, MapPin, BarChart3, Radio, Megaphone, HeartPulse, Volume2, VolumeX } from 'lucide-react';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 const API_BASE = 'http://45.33.73.99:5000/api';
 
