@@ -61,6 +61,12 @@ function App() {
         setMessages(messagesRes.data);
         setCrisis(crisisRes.data);
 
+        // Check if scenario is complete
+        if (crisisRes.data.status === 'complete') {
+          setIsComplete(true);
+          setActiveAgents(new Set());
+        }
+
         const recentAgents = new Set();
         const now = Date.now();
         messagesRes.data.forEach(msg => {
@@ -81,7 +87,7 @@ function App() {
   }, [scenario, isComplete]);
 
   useEffect(() => {
-    if (!startTime) return;
+    if (!startTime || isComplete) return;
 
     const timer = setInterval(() => {
       const elapsed = Math.floor((Date.now() - startTime) / 1000);
@@ -89,16 +95,10 @@ function App() {
       
       const progressPercent = Math.min((elapsed / 40) * 100, 100);
       setProgress(progressPercent);
-
-      if (elapsed >= 40 || messages.length >= 12) {
-        setIsComplete(true);
-        setActiveAgents(new Set());
-        clearInterval(timer);
-      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [startTime, messages.length]);
+  }, [startTime, isComplete]);
 
   return (
     <div className="app">
