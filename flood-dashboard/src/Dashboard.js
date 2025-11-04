@@ -226,7 +226,7 @@ function Dashboard() {
           <div className="idle-state">
             <div className="idle-icon">🚨</div>
             <h2>No Active Emergency</h2>
-            <p>Select a scenario above to begin demonstration</p>
+            <p>Type a scenario above to begin demonstration</p>
           </div>
         )}
       </main>
