@@ -64,7 +64,6 @@ function App() {
         // Check if scenario is complete
         if (crisisRes.data.status === 'complete') {
           setIsComplete(true);
-          setActiveAgents(new Set());
         }
 
         const recentAgents = new Set();
