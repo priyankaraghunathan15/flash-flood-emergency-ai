@@ -14,7 +14,6 @@ function Dashboard() {
   const [activeAgents, setActiveAgents] = useState(new Set());
   const [isComplete, setIsComplete] = useState(false);
   const [startTime, setStartTime] = useState(null);
-  const [isMuted, setIsMuted] = useState(false);
   const previousActiveAgents = useRef(new Set());
   const [chatInput, setChatInput] = useState('');
 
@@ -231,13 +230,6 @@ function Dashboard() {
           </div>
         )}
       </main>
-      <button 
-        onClick={() => setIsMuted(!isMuted)}
-        className="floating-mute-button"
-        title={isMuted ? "Unmute sounds" : "Mute sounds"}
-      >
-        {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-      </button>
     </div>
   );
 }
