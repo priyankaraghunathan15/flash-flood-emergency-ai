@@ -58,12 +58,14 @@ function App() {
           axios.get(`${API_BASE}/crisis`)
         ]);
 
-        setMessages(messagesRes.data);
+        setMessages(messagesRes.data);  
         setCrisis(crisisRes.data);
 
         // Check if scenario is complete
         if (crisisRes.data.status === 'complete') {
           setIsComplete(true);
+          // Don't update active agents anymore - keep them as they are
+          return;
         }
 
         const recentAgents = new Set();
