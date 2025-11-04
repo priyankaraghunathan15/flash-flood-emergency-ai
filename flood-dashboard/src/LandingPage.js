@@ -243,11 +243,6 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="border-t border-gray-800 py-6 text-center">
-          <p className="text-gray-500 text-base">Master's Capstone Project | Northeastern University | 2025</p>
-          <p className="text-gray-600 mt-2 text-sm">Priyanka Raghunathan | Data Science</p>
-        </div>
       </div>
     </div>
   );

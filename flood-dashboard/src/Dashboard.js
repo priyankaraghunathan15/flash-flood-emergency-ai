@@ -65,9 +65,7 @@ function Dashboard() {
     
     setChatInput('');
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   useEffect(() => {
     if (!scenario || isComplete) return;
 
