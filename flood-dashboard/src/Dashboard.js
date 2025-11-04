@@ -18,6 +18,9 @@ function Dashboard() {
   const previousActiveAgents = useRef(new Set());
   const [chatInput, setChatInput] = useState('');
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const agents = [
     { id: 'mission-control', name: 'Mission Control', icon: Target, color: '#ef4444' },
     { id: 'social-media-sentinel', name: 'Social Media', icon: Share2, color: '#3b82f6' },
@@ -51,12 +54,16 @@ function Dashboard() {
 
   const handleChatSubmit = () => {
     const input = chatInput.toLowerCase().trim();
+    console.log('Chat input:', input); // Debug log
     
     if (input.includes('high')) {
+      console.log('Triggering high severity'); // Debug log
       triggerScenario('high_severity');
     } else if (input.includes('medium')) {
+      console.log('Triggering medium severity'); // Debug log
       triggerScenario('medium_severity');
     } else if (input.includes('false') || input.includes('alarm')) {
+      console.log('Triggering false alarm'); // Debug log
       triggerScenario('false_alarm');
     } else {
       alert('Please specify: high severity, medium severity, or false alarm');
