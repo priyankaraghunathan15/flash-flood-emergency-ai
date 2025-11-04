@@ -38,7 +38,7 @@ export default function LandingPage() {
             </p>
 
             {/* Performance Metrics */}
-            <div className="max-w-6xl mx-auto mb-16">
+            <div className="max-w-5xl mx-auto mb-16">
               <div className="bg-gradient-to-br from-slate-900 to-slate-800 border-2 border-slate-700 rounded-3xl p-12 shadow-2xl">
                 
                 <div className="text-center mb-12">
@@ -228,8 +228,11 @@ export default function LandingPage() {
 
             {/* CTA */}
             <div className="text-center">
-              <button 
-                onClick={() => navigate('/dashboard')}
+                <button 
+                onClick={() => {
+                    navigate('/dashboard');
+                    window.scrollTo(0, 0);
+                }}
                 className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white text-xl font-bold py-6 px-12 rounded-2xl shadow-2xl transform hover:scale-105 transition-all flex items-center gap-3 mx-auto border border-blue-400/30"
               >
                 <span>View Live System</span>
