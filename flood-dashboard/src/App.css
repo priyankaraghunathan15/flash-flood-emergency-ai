@@ -444,39 +444,42 @@ button:hover:not(:disabled) {
   font-size: 17px;
 }
 
-.floating-mute-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: rgba(59, 130, 246, 0.9);
-  border: none;
-  padding: 16px;
-  border-radius: 50%;
-  cursor: pointer;
-  color: white;
+.chat-interface {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-  z-index: 1000;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.floating-mute-button:hover {
-  background: rgba(59, 130, 246, 1);
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+.chat-input {
+  flex: 1;
+  padding: 18px 24px;
+  background: #1e293b;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.floating-mute-button:active {
-  transform: scale(0.95);
+.chat-input:focus {
+  outline: none;
+  border-color: #3b82f6;
 }
 
-.mute-button:hover {
-  background: rgba(59, 130, 246, 0.3);
-  transform: translateY(-2px);
+.chat-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-.mute-button:active {
-  transform: translateY(0);
+.chat-send-btn {
+  padding: 18px 48px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  transform: translateY(-4px);
 }
