@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { Target, Share2, CloudRain, Newspaper, Search, MapPin, BarChart3, Radio, Megaphone, HeartPulse, Volume2, VolumeX } from 'lucide-react';
 
-const API_BASE = 'http://45.33.73.99:5000/api';
+const API_BASE = '/.netlify/functions/api-proxy';
 
 function Dashboard() {
   const [scenario, setScenario] = useState(null);
